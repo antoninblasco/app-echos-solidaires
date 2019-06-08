@@ -35,8 +35,8 @@ export default class Login extends React.Component {
     }
 
     checkUserandPwd(mail, password){
-        if(mail === "contact@echossolidaires.fr"){
-            if (password === "motdepasse") {
+        if(mail === ""){
+            if (password === "") {
                 this.props.navigation.navigate('Accueil');
             }
             else{
@@ -63,13 +63,19 @@ export default class Login extends React.Component {
                         <TextInput
                             style={styles.textInput}
                             placeholder={"Adresse e-mail"}
-                            onChangeText={(text) => this.setState({mail: text})}
+                            onChangeText={(text) => this.setState({
+                                mail: text,
+                                error: ''
+                            })}
                         />
                         <TextInput
                             style={styles.textInput}
                             placeholder={"Mot de passe"}
                             secureTextEntry = {true}
-                            onChangeText={(text) => this.setState({mdp: text})}
+                            onChangeText={(text) => this.setState({
+                                mdp: text,
+                                error: ''
+                            })}
                         />
                         <View style={styles.btnContainer}>
                             <TouchableOpacity
