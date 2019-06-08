@@ -1,15 +1,24 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation'
+import Login from "./src/pages/Login";
+import Accueil from "./src/pages/Accueil";
+import Signin from "./src/pages/Signin";
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app! Test</Text>
-      </View>
-    );
-  }
-}
+
+const AppNavigator = createStackNavigator({
+    Login : {
+      screen: Login
+    },
+    Accueil:{
+        screen: Accueil
+    },
+    Inscription:{
+        screen: Signin
+    }
+})
+
+export default createAppContainer(AppNavigator)
 
 const styles = StyleSheet.create({
   container: {
