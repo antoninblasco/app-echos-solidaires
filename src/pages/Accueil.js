@@ -5,8 +5,10 @@ import {
     StyleSheet,
     Text,
     View,
-    Image, TouchableOpacity
+    Image, TouchableOpacity,
+    ImageBackground
 } from "react-native";
+import { LinearGradient } from 'expo';
 import Swiper from 'react-native-web-swiper';
 
 export default class Accueil extends React.Component {
@@ -14,7 +16,6 @@ export default class Accueil extends React.Component {
     static navigationOptions = {
         header: null
     }
-
 
     render() {
         return(
@@ -40,17 +41,44 @@ export default class Accueil extends React.Component {
                     </View>
                     <View style={styles.sliderActu}>
                         <Text style={styles.greenTitle}>Actualités</Text>
-                        <Swiper prevButtonText={""} nextButtonText={""}>
-                            <View style={[styles.slidesActu,styles.slide1]}>
-                                <Text>Slide 1</Text>
-                            </View>
-                            <View style={[styles.slidesActu,styles.slide2]}>
-                                <Text>Slide 2</Text>
-                            </View>
-                            <View style={[styles.slidesActu,styles.slide3]}>
-                                <Text>Slides3</Text>
-                            </View>
+                        <Swiper activeDotStyle={styles.activeDot} prevButtonText={""} nextButtonText={""}>
+                            <TouchableOpacity style={[styles.slidesActu]} onPress={() => this.props.navigation.navigate('Actualite')}>
+                                <ImageBackground source={require('../../assets/dan-gold-298710-unsplash.jpg')} style={styles.card}>
+                                    <LinearGradient
+                                        colors={['transparent', 'rgba(0,0,0,0.8)']}
+                                        style={styles.gradient}>
+                                            <Text style={styles.actuTitle}>Recette quinoa</Text>
+                                            <Text style={styles.actuDesc}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque ducimus eum eveniet nam nisi odio quae saepe! </Text>
+                                    </LinearGradient>
+                                </ImageBackground>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={[styles.slidesActu]} onPress={() => this.props.navigation.navigate('Actualite')}>
+                                <ImageBackground source={require('../../assets/peter-wendt-123928-unsplash.jpg')} style={styles.card}>
+                                    <LinearGradient
+                                        colors={['transparent', 'rgba(0,0,0,0.8)']}
+                                        style={styles.gradient}>
+                                        <Text style={styles.actuTitle}>C'est la rentrée</Text>
+                                        <Text style={styles.actuDesc}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque ducimus eum eveniet nam nisi odio quae saepe! </Text>
+                                    </LinearGradient>
+                                </ImageBackground>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={[styles.slidesActu]} onPress={() => this.props.navigation.navigate('Actualite')}>
+                                <ImageBackground source={require('../../assets/heather-barnes-1464276-unsplash.jpg')} style={styles.card}>
+                                    <LinearGradient
+                                        colors={['transparent', 'rgba(0,0,0,0.8)']}
+                                        style={styles.gradient}>
+                                        <Text style={styles.actuTitle}>Cuisiner la rhubarbe</Text>
+                                        <Text style={styles.actuDesc}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque ducimus eum eveniet nam nisi odio quae saepe! </Text>
+                                    </LinearGradient>
+                                </ImageBackground>
+                            </TouchableOpacity>
                         </Swiper>
+                        <TouchableOpacity
+                            style={[styles.bouton, styles.firstButton]}
+                            onPress={() =>  this.props.navigation.navigate('Inscription')}
+                        >
+                            <Text style={styles.boutontitle}>Voir les actualités</Text>
+                        </TouchableOpacity>
                     </View>
                 </SafeAreaView>
         )
@@ -62,7 +90,6 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingVertical: 20,
         paddingHorizontal: 20,
-        justifyContent: "flex-start",
         marginTop: Platform.OS === 'android' ? 35 : 0,
     },
     blackTitle:{
@@ -103,20 +130,34 @@ const styles = StyleSheet.create({
         justifyContent: "space-between"
     },
     sliderActu:{
-        flex: 2
+        flex: 1
     },
     slidesActu: {
         flex: 1,
         alignItems: "center",
-        justifyContent: "center"
+        paddingBottom: 40,
+        paddingHorizontal: 20
     },
-    slide1: {
-        backgroundColor: "rgba(20,20,200,0.3)"
+    card:{
+        borderRadius: 20,
+        overflow: "hidden",
     },
-    slide2: {
-        backgroundColor: "rgba(20,200,20,0.3)"
+    actuTitle:{
+        color: "white",
+        fontSize: 18,
+        fontWeight: "bold"
     },
-    slide3: {
-        backgroundColor: "rgba(200,20,20,0.3)"
+    actuDesc:{
+        color: "white"
     },
+    activeDot:{
+        backgroundColor: "#89b56d"
+    },
+    gradient:{
+        flex: 1,
+        justifyContent: "flex-end",
+        width: "100%",
+        paddingHorizontal: 20,
+        paddingBottom: 20
+    }
 });

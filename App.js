@@ -4,6 +4,7 @@ import { createStackNavigator, createAppContainer } from 'react-navigation'
 import Login from "./src/pages/Login";
 import Accueil from "./src/pages/Accueil";
 import Signin from "./src/pages/Signin";
+import Actualite from "./src/pages/Actualite";
 
 
 const AppNavigator = createStackNavigator({
@@ -15,6 +16,9 @@ const AppNavigator = createStackNavigator({
     },
     Inscription:{
         screen: Signin
+    },
+    Actualite:{
+        screen: Actualite
     }
 })
 
