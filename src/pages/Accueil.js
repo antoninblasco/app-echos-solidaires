@@ -33,7 +33,7 @@ export default class Accueil extends React.Component {
                             </Text>
                             <TouchableOpacity
                                 style={[styles.bouton, styles.firstButton]}
-                                onPress={() =>  this.props.navigation.navigate('Inscription')}
+                                onPress={() =>  this.props.navigation.navigate('Panier')}
                             >
                                 <Text style={styles.boutontitle}>Voir le panier</Text>
                             </TouchableOpacity>

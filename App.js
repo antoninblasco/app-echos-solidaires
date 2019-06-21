@@ -5,6 +5,7 @@ import Login from "./src/pages/Login";
 import Accueil from "./src/pages/Accueil";
 import Signin from "./src/pages/Signin";
 import Actualite from "./src/pages/Actualite";
+import Panier from "./src/pages/Panier";
 
 
 const AppNavigator = createStackNavigator({
@@ -19,6 +20,9 @@ const AppNavigator = createStackNavigator({
     },
     Actualite:{
         screen: Actualite
+    },
+    Panier:{
+        screen: Panier
     }
 })
 

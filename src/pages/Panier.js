@@ -31,8 +31,15 @@ export default class Accueil extends React.Component {
                         Retour
                     </Text>
                 </TouchableOpacity>
-                <Text style={styles.blackTitle}>Actualités</Text>
-                <Text style={styles.greenTitle}>Recette Quinoa</Text>
+                <Text style={styles.blackTitle}>Panier</Text>
+                <Text style={styles.greenTitle}>Panier de la semaine</Text>
+                <View style={styles.footer}>
+                    <TouchableOpacity style={styles.boutonReserv}>
+                        <Text style={{color: 'white'}}>
+                            Réserver
+                        </Text>
+                    </TouchableOpacity>
+                </View>
                 <ScrollView>
                     <Image style={styles.imageActu}
                            source={require('../../assets/peter-wendt-123928-unsplash.jpg')}
@@ -42,16 +49,13 @@ export default class Accueil extends React.Component {
                         Autem, beatae consectetur consequuntur dicta distinctioue laborum mollitia quasi quia reiciendis repellendus, ullam unde ut voluptas voluptates? Aperiam, possimus.
                     </Text>
                     <Text style={styles.paragraph}>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab asperiores cum distinctio ea eos facere facilis fuga, harum necessitatibus nihil non obcaecati omnis quasi quisquam ratione reprehenderit sint ullam vitae.
-                        Autem, beatae consectetur consequuntur dicta distinctio dolore, earum facilis harum ipsam iusto laborum maiores optio perferendis quam quia, quibusdam reiciendis rerum sed?
-                        Animi doloribus molestiae nobis placeat, provident repellendus sequi vitae. Animi delectus dolore libero nesciunt provident quo, quod quos reiciendis sint voluptates! Dolorum?
-                        Assumenda blanditiis dolore dolorem ex fugiat incidunt iure laboriosam laudantium nemo officia, qui quia quibusdam, quis quos recusandae, rem sed veritatis vitae!
-                        Amet animi aperiam assumenda autem eum facilis, hic itaque laborum mollitia quasi quia reiciendis repellendus, ullam unde ut voluptas voluptates? Aperiam, possimus.
+                        Lorem ipsum dolor sit ametorum mollitia quasi quia reiciendis repellendus, ullam unde ut voluptas voluptates? Aperiam, possimus.
                     </Text>
-                    <Text style={styles.paragraph}>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab asperiores cum distinctio ea eos facere facilis fuga, harum necessitatibus nihil non obcaecati omnis quasi quisquam ratione reprehenderit sint ullam vitae.
-                        Autem, beatae consectetur consequuntur dicta distinctioue laborum mollitia quasi quia reiciendis repellendus, ullam unde ut voluptas voluptates? Aperiam, possimus.
-                    </Text>
+                    <Text style={styles.greenTitle}>Contenu du panier</Text>
+                    <Text style={styles.ingredients}>- Pommes de terres (5)</Text>
+                    <Text style={styles.ingredients}>- Courge (1)</Text>
+                    <Text style={styles.ingredients}>- Poireaux (2)</Text>
+                    <Text style={styles.ingredients}>- Tomates (2)</Text>
                 </ScrollView>
             </SafeAreaView>
         )
@@ -84,6 +88,31 @@ const styles = StyleSheet.create({
     paragraph: {
         marginBottom: 20,
         fontSize: 15
+    },
+    footer:{
+        position: 'absolute',
+        backgroundColor: 'white',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        paddingHorizontal: 10,
+        textAlign: 'center',
+        paddingVertical: 20,
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 99,
+        elevation: 6
+    },
+    boutonReserv:{
+        backgroundColor: '#89b56d',
+        paddingHorizontal: 100,
+        paddingVertical: 10,
+        borderRadius: 25,
+        shadowColor: "#000",
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        elevation: 5
     }
-
 });
